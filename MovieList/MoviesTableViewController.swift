@@ -107,6 +107,8 @@ extension MoviesTableViewController{
         indexOfPageRequest = 0
         filter = (maxYear,minYear)
         loadMovies()
+        let top = NSIndexPath(row: Foundation.NSNotFound, section: 0)
+        self.tableView.scrollToRow(at: top as IndexPath, at: .top, animated: true);
     }
 }
 //MARK:- tableview datasource

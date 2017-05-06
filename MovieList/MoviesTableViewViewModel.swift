@@ -21,7 +21,11 @@ class MoviesTableViewViewModel{
     var showLoadingIndicator : Bindable = Bindable(false)
     
     let movieCells = Bindable([MovieTableViewCellType]())
-    let tmdbService = TMDBNetworkService()
+    let tmdbService: TMDBNetworkService
+    
+    init(tmdbService: TMDBNetworkService = TMDBNetworkService()) {
+        self.tmdbService = tmdbService
+    }
     
     func getMovies(pageIndex:Int,minYear:String="0",maxYear:String="0"){
         

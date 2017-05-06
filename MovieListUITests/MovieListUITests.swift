@@ -28,9 +28,42 @@ class MovieListUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFilterView() {
+       
+        XCUIDevice.shared().orientation = .faceUp
+        
+        let app = XCUIApplication()
+        app.navigationBars["Movies"].buttons["filter"].tap()
+        
+        let filterText = app.staticTexts["Filter Movies"]
+        let exists = NSPredicate(format: "exists == true")
+        expectation(for: exists, evaluatedWith:filterText, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+    
+        XCTAssert(app.buttons["Apply"].exists)
+        XCTAssert(app.staticTexts["Max Release Year"].exists)
+        XCTAssert(app.staticTexts["Min Release Year"].exists)
+        XCTAssert(app.sliders.element(boundBy: 0).exists)
+        XCTAssert(app.sliders.element(boundBy: 1).exists)
+        app.buttons["Apply"].tap()
+    }
+    
+    
+    func testDetailView(){
+        
+        XCUIDevice.shared().orientation = .faceUp
+        
+        let app = XCUIApplication()
+        let cell = app.tables.cells.element(boundBy: 0)
+        XCTAssert(cell.exists)
+        cell.tap()
+        
+        let navButton = app.navigationBars["MovieList.MovieDetailView"].buttons["Movies"]
+        let exists = NSPredicate(format: "exists == true")
+        
+        expectation(for: exists, evaluatedWith:navButton, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        navButton.tap()
     }
     
 }

@@ -40,7 +40,6 @@ class TMDBNetworkService{
                 
                 switch response.result{
                 case .success:
-                    
                     guard let movieResponse = response.result.value else{
                         completion(.failure(nil))
                         return

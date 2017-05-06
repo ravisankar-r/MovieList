@@ -2,7 +2,7 @@
 //  MovieListUITests.swift
 //  MovieListUITests
 //
-//  Created by ctsuser1 on 5/3/17.
+//  Created by Ravi on 5/3/17.
 //  Copyright © 2017 RaviSankar. All rights reserved.
 //
 

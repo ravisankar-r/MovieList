@@ -29,7 +29,11 @@ class MovieTableViewCell : UITableViewCell{
         labelMovieOverview?.text = viewModel?.movie.overview
         labelMovieReleaseDate?.text = viewModel?.movie.release_date
         labelMovieRating?.text = viewModel?.rating
-        imageViewMovieThumbNail.downloadedFrom(link:(viewModel?.imageURL)!)
+        guard let imageURL = viewModel?.imageURL else {
+            imageViewMovieThumbNail.image = UIImage(named:"image-not-available")
+            return
+        }
+        imageViewMovieThumbNail.downloadedFrom(link:imageURL)
         
     }
 }
@@ -44,7 +48,9 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-                else { return }
+                else {
+                    return
+            }
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
             }

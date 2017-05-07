@@ -114,7 +114,9 @@ extension MoviesTableViewController{
         indexOfPageRequest = 0
         filter = (maxYear,minYear)
         loadMovies(loadActionTrigger: .filter)
-        self.tableView.setContentOffset(CGPoint.zero, animated: true)
+        if (self.tableView.numberOfSections > 0 ) {
+            self.tableView.setContentOffset(CGPoint.zero, animated: false)
+        }
     }
 }
 //MARK:- tableview datasource

@@ -25,7 +25,6 @@
 		976A566C1EBE6F78004CE28F /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976A566B1EBE6F78004CE28F /* MovieTests.swift */; };
 		979E6CF31EBBB7B300A13A72 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E6CF21EBBB7B300A13A72 /* Movie.swift */; };
 		979E6CF71EBBB81300A13A72 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E6CF61EBBB81300A13A72 /* MovieResponse.swift */; };
-		97E814971EBAEA96002FE138 /* MovieApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E814961EBAEA96002FE138 /* MovieApiService.swift */; };
 		97E8149C1EBB786B002FE138 /* TMDBNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E8149B1EBB786B002FE138 /* TMDBNetworkService.swift */; };
 		97E8149F1EBB796F002FE138 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E8149E1EBB796F002FE138 /* Result.swift */; };
 		97E814A11EBB847F002FE138 /* MoviesTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E814A01EBB847F002FE138 /* MoviesTableViewViewModel.swift */; };
@@ -78,7 +77,6 @@
 		976A566B1EBE6F78004CE28F /* MovieTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
 		979E6CF21EBBB7B300A13A72 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		979E6CF61EBBB81300A13A72 /* MovieResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
-		97E814961EBAEA96002FE138 /* MovieApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieApiService.swift; sourceTree = "<group>"; };
 		97E8149B1EBB786B002FE138 /* TMDBNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBNetworkService.swift; sourceTree = "<group>"; };
 		97E8149E1EBB796F002FE138 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		97E814A01EBB847F002FE138 /* MoviesTableViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesTableViewViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +167,7 @@
 		972CD0631EBA352300EAAA54 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				976A56711EBE9AEC004CE28F /* ViewModel */,
 				97E8149D1EBB7961002FE138 /* Helpers */,
 				97E8149A1EBB7858002FE138 /* Service */,
 				97E814951EBA7AA4002FE138 /* View */,
@@ -206,22 +205,28 @@
 		972CD0971EBA3DF800EAAA54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				97E814961EBAEA96002FE138 /* MovieApiService.swift */,
 				979E6CF21EBBB7B300A13A72 /* Movie.swift */,
 				979E6CF61EBBB81300A13A72 /* MovieResponse.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
+		976A56711EBE9AEC004CE28F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				97E814A01EBB847F002FE138 /* MoviesTableViewViewModel.swift */,
+				97E814A61EBB8EE5002FE138 /* MovieViewModel.swift */,
+				976A56631EBCCC58004CE28F /* DetailviewViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		97E814951EBA7AA4002FE138 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				972CD0661EBA352300EAAA54 /* MoviesTableViewController.swift */,
-				97E814A01EBB847F002FE138 /* MoviesTableViewViewModel.swift */,
-				97E814A61EBB8EE5002FE138 /* MovieViewModel.swift */,
 				97E814A81EBB918F002FE138 /* MovieTableViewCell.swift */,
 				976A56611EBCCA94004CE28F /* MovieDetailViewController.swift */,
-				976A56631EBCCC58004CE28F /* DetailviewViewModel.swift */,
 				976A56671EBE38F7004CE28F /* FilterViewController.swift */,
 			);
 			name = View;
@@ -534,7 +539,6 @@
 				979E6CF71EBBB81300A13A72 /* MovieResponse.swift in Sources */,
 				97E814A31EBB8686002FE138 /* Bindable.swift in Sources */,
 				972CD0671EBA352300EAAA54 /* MoviesTableViewController.swift in Sources */,
-				97E814971EBAEA96002FE138 /* MovieApiService.swift in Sources */,
 				972CD0651EBA352300EAAA54 /* AppDelegate.swift in Sources */,
 				97E8149C1EBB786B002FE138 /* TMDBNetworkService.swift in Sources */,
 				97E814A71EBB8EE5002FE138 /* MovieViewModel.swift in Sources */,

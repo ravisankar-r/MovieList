@@ -33,7 +33,6 @@ class TMDBNetworkService{
                 urlParams["primary_release_date.lte"]=maxYear
         }
         
-        print(urlParams)
         Alamofire.request(TMDBConfig.TMDB_GET_MOVIES_URL, method: .get, parameters: urlParams)
                  .validate()
             .responseObject{ (response: DataResponse<MovieResponse>) in

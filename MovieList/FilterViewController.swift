@@ -56,6 +56,8 @@ class FilterViewController : UIViewController , UIGestureRecognizerDelegate{
         
         sliderMinYear.value = Float(minYear) ?? 1960
         sliderMaxYear.value = Float(maxYear) ?? 2017
+        sliderMaxYear.minimumValue = sliderMinYear.value
+        sliderMinYear.maximumValue = sliderMaxYear.value
         labelMaxyear.text = maxYear
         labelMinYear.text = minYear
 

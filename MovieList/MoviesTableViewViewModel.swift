@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class MoviesTableViewViewModel{
     
     enum MovieTableViewCellType{
@@ -27,7 +28,7 @@ class MoviesTableViewViewModel{
         self.tmdbService = tmdbService
     }
     
-    func getMovies(pageIndex:Int,minYear:String="0",maxYear:String="0"){
+    func getMovies(pageIndex:Int,minYear:String="0",maxYear:String="0",requestTrigger : GetMoviesActionTrigger){
         
         showLoadingIndicator.value = true
         tmdbService.getMovies(pageIndex: pageIndex,minYear:minYear,maxYear: maxYear,completion: {[weak self] result in
@@ -37,15 +38,15 @@ class MoviesTableViewViewModel{
                 
             case .success(let movieResponse):
                 guard (movieResponse.movies?.count)! > 0 else{
-                    self?.movieCells.value = [.empty]
+                
                     return
                 }
-                if minYear == "0" && maxYear == "0"{
+                if requestTrigger == .scroll{
                     self?.movieCells.value.append(contentsOf: (movieResponse.movies?.flatMap{.normal(cellViewModel:$0 as MovieViewModel)})!)
                 }else {
                     self?.movieCells.value = (movieResponse.movies?.flatMap{.normal(cellViewModel:$0 as MovieViewModel)})!
                 }
-                
+               
             case .failure(let error):
             self?.movieCells.value = [.error(message:error?.getErrorMessage() ?? "Loading failed")]
             }

@@ -9,13 +9,19 @@
 import UIKit
 import PKHUD
 
+enum GetMoviesActionTrigger: Int{
+    
+    case filter = 1
+    case scroll = 2
+}
+
+
 class MoviesTableViewController : UITableViewController , FilterViewDelegate{
     
     let viewModel : MoviesTableViewViewModel = MoviesTableViewViewModel()
     
     var indexOfPageRequest = 0
     var filter:(maxYear:String,minYear:String)?
-    var filterEnabled = false
     var loadingStatus = false
     
     override func viewDidLoad() {
@@ -23,11 +29,12 @@ class MoviesTableViewController : UITableViewController , FilterViewDelegate{
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 161
         bindViewModel()
+        loadMovies(loadActionTrigger: .filter)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadMovies()
+        
     }
     
      func bindViewModel(){
@@ -43,17 +50,17 @@ class MoviesTableViewController : UITableViewController , FilterViewDelegate{
         
     }
     
-    func loadMovies(){
+    func loadMovies(loadActionTrigger : GetMoviesActionTrigger){
         if !loadingStatus{
             loadingStatus = true
             // increments the number of the page to request
             indexOfPageRequest += 1
             guard let filterData = filter  else{
                 
-                viewModel.getMovies(pageIndex: indexOfPageRequest)
+                viewModel.getMovies(pageIndex: indexOfPageRequest,requestTrigger : loadActionTrigger)
                 return
             }
-                viewModel.getMovies(pageIndex: indexOfPageRequest,minYear:filterData.minYear,maxYear:filterData.maxYear)
+            viewModel.getMovies(pageIndex: indexOfPageRequest,minYear:filterData.minYear,maxYear:filterData.maxYear,requestTrigger:loadActionTrigger)
         }
 }
     
@@ -66,7 +73,7 @@ class MoviesTableViewController : UITableViewController , FilterViewDelegate{
         if offsetY > contentHeight - scrollView.frame.size.height {
             
             // call your API for more data
-            loadMovies()
+            loadMovies(loadActionTrigger: .scroll)
             
             // tell the table view to reload with the new data
             self.tableView.reloadData()
@@ -106,9 +113,8 @@ extension MoviesTableViewController{
         
         indexOfPageRequest = 0
         filter = (maxYear,minYear)
-        loadMovies()
-        let top = NSIndexPath(row: Foundation.NSNotFound, section: 0)
-        self.tableView.scrollToRow(at: top as IndexPath, at: .top, animated: true);
+        loadMovies(loadActionTrigger: .filter)
+        self.tableView.setContentOffset(CGPoint.zero, animated: true)
     }
 }
 //MARK:- tableview datasource

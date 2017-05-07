@@ -17,7 +17,7 @@ class BindableTests: XCTestCase {
         
         let expectListenerCalled = expectation(description: "Listener is called")
         bindable.bind { value in
-            XCTAssert(value == true, "testBind failed, should have been true")
+            XCTAssert(value == true, "testBind failed")
             expectListenerCalled.fulfill()
         }
         
@@ -30,7 +30,7 @@ class BindableTests: XCTestCase {
         
         let expectListenerCalled = expectation(description: "Listener is called")
         bindable.bindAndFire { value in
-            XCTAssert(value == true, "testBindAndFire failed, should have been true")
+            XCTAssert(value == true, "testBindAndFire failed")
             expectListenerCalled.fulfill()
         }
         

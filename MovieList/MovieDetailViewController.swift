@@ -27,12 +27,19 @@ class MovieDetailViewController : UIViewController {
     
     func bindViewModel(){
         
-        imageViewPoster.downloadedFrom(link: (viewModel?.imageURL)!)
-        imageViewBackDrop.downloadedFrom(link: (viewModel?.backDropImageURL)!)
         labelMovieTitle.text = viewModel?.movie.title
         labelMovieReleaseDate.text = viewModel?.movie.release_date
         labelMovieOverView.text = viewModel?.movie.overview
         labelMovieRating.text = viewModel?.rating
+        guard let posterImageURL = viewModel?.imageURL,
+              let backDropImageURL = viewModel?.backDropImageURL else {
+                
+                imageViewPoster.image = UIImage(named:"image-not-available")
+                imageViewBackDrop.image = UIImage(named:"image-not-available")
+                return
+        }
+        imageViewPoster.downloadedFrom(link: posterImageURL)
+        imageViewBackDrop.downloadedFrom(link: backDropImageURL)
     }
  
     

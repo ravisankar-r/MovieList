@@ -75,7 +75,7 @@
                                                 <constraint firstItem="Yo1-SA-Bgd" firstAttribute="top" secondItem="e1Y-3n-Vj5" secondAttribute="bottom" constant="4" id="zfa-mT-sqG"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qp0-YX-eTz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-not-available" translatesAutoresizingMaskIntoConstraints="NO" id="Qp0-YX-eTz">
                                             <rect key="frame" x="12" y="10.5" width="128" height="140"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="128" id="wYy-EW-evG"/>
@@ -164,14 +164,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1960" minValue="1960" maxValue="2017" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-1P-vsI">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1940" minValue="1940" maxValue="2017" translatesAutoresizingMaskIntoConstraints="NO" id="XjD-1P-vsI">
                                         <rect key="frame" x="8" y="84" width="224" height="31"/>
                                         <color key="tintColor" red="0.28627450980000002" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="minYearSliderValueChangedWithSender:" destination="Soi-9U-OC2" eventType="valueChanged" id="abn-7D-TVa"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2017" minValue="1960" maxValue="2017" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-Q3-02m">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2017" minValue="1940" maxValue="2017" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-Q3-02m">
                                         <rect key="frame" x="8" y="176" width="224" height="31"/>
                                         <color key="tintColor" red="0.28627450980000002" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -263,14 +263,14 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-kv-2sJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-not-available" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-kv-2sJ">
                                 <rect key="frame" x="-10" y="0.0" width="395" height="200"/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="FYK-fG-z09"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89F-ob-oH3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-not-available" translatesAutoresizingMaskIntoConstraints="NO" id="89F-ob-oH3">
                                 <rect key="frame" x="0.0" y="120" width="140" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="0aq-Jj-oSy"/>
@@ -372,5 +372,6 @@
     </scenes>
     <resources>
         <image name="filter" width="32" height="32"/>
+        <image name="image-not-available" width="500" height="500"/>
     </resources>
 </document>

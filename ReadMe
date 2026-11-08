@@ -1,2 +1,5 @@
 # MovieList
+
+> **Status (Nov 2026):** An iOS client for browsing and filtering movies from TMDB, written in Swift 3 with MVVM and CocoaPods in 2017. List, detail, filter, infinite scroll and tests work as of their last build, and the API key now loads from an untracked Secrets.xcconfig. It no longer compiles on current Xcode; reviving it means a Swift 5 and Codable migration.
+
 Movie list app using TMDB
